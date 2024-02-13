@@ -9,8 +9,8 @@ The Camera is how i allready mentioned directly mounted to the print-head via a 
 
 This mount may be not the perfect mount for the camera postion and image we generate trough that. There are many alternatives on Printables and if none of them match our Requierments we could design one ourself 
 
-# 3D-Printer
-The Printing is done on one of our own upgraded Prusa MK3S+. As a Filament we gonna use White PLA from FilaFarm because it gives the best contrast to the green printbed and the gold like nozzle.  
+# 3D-Printing
+The Printing is done on one of our own upgraded Prusa MK3S+. As a Filament we gonna use White PLA from FilaFarm because it gives the best contrast to the green printbed and the gold like nozzle. We are using a standard profile with 0.2mm layerhight and a print speed of 100% (Standar prusa speed ???) and 0.4 Nozzle. Those Settings are the most widelyused settigns in the 3D-Printign Community.
 
 # Data Sets
 How allready mentioend we are using an Kaggle dataset which has around 100k images which should be enough for this type of work. another dataset which we maybe gonna use is the cambridge one. This one has arround 1.25 mio images in its dataset which are also classifed into more labels then the KAglle one they have more diffrent describign aspects liek temperaturea nd speed to it. These details make it more suited for the live adjusting paramter programm.
