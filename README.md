@@ -5,13 +5,13 @@ This repository is for a Course tittled "Learning from Images" at BHT. Our Proje
 This Idea ist not new and also has been done before but we and my colleague want to implent it ourself. We are trying to use an allready labeld Dataset from Kaggle where the Camera is directly mounted to the Nozzle which is maybe not Ideal for detecting failes of the whole Print but it could be used for first layer print fail detection. Further more what could be also done with this setup is tuneing in the Printing paramtes live (this has also be doen befoere)
 
 # Camera Mount 
-The Camera is how i allready mentioned directly mounted to the print-head via a 3D-Printed mount https://www.printables.com/de/model/17993-prusa-mk3s-55mm-nozzle-camera-mount 
+The Camera is how i allready mentioned directly mounted to the print-head via a 3D-Printed mount https://www.printables.com/de/model/17993-prusa-mk3s-55mm-nozzle-camera-mount : 
 
 ![prusa_i3_mk3s_endocamera_mount_17993](https://github.com/prenzelprinz/Visual-3D-Print-Error-Detection/assets/132297533/261fa786-227b-4fea-8149-536212d40aad)
 
 This mount may be not the perfect mount for the camera postion and image we generate trough that. There are many alternatives on Printables and if none of them match our Requierments we could design one ourself 
 
-We tried another setup because it matched more the angel and generell type of pictures of the Kaggle dataset.
+We tried another setup and mount because we thought it would match the angel and generell type of pictures of the Kaggle dataset more https://www.printables.com/de/model/48381-prusa-mk3s-nozzle-camera-mount-no-support-required:
 ![endoholder](https://github.com/prenzelprinz/Visual-3D-Print-Error-Detection/assets/132297533/51e9bb7a-48fd-4496-a051-a5fb4b7486bd)
 
 In the end we went back to the original mount becasue its image and angle turend out to be the best.Nonetheless we used the enhanced version of it with a screw which secures agianst rotation of the camera which asures a stable image. 
@@ -30,19 +30,19 @@ In later stages we tried to use green filament becuase of the reflectiv properti
 Grenn didn't seem to improve the recognition. We are gonna try blue Filament now of which there was abondens in the dataset.  
 
 # Data Sets
-How allready mentioend we are using an Kaggle dataset which has around 100k images which should be enough for this type of work. another dataset which we maybe gonna use is the cambridge one. This one has arround 1.25 mio images in its dataset which are also classifed into more labels then the Kaggel one they have more diffrent describign aspects liek temperaturea nd speed to it. These details make it more suited for the live adjusting paramter programm.
+How allready mentioend we are using an Kaggle dataset which has around 25k images which should be enough for this type of work https://www.kaggle.com/datasets/gauravduttakiit/early-detection-of-3d-printing-issues. another dataset which we maybe gonna use is the cambridge one. This one has arround 1.25 mio images in its dataset which are also classifed into more labels then the Kaggel one they have more diffrent describign aspects liek temperaturea nd speed to it. These details make it more suited for the live adjusting paramter programm.
 
 After further investigation it appeard that the Kaggle dataset is not focused on a geenral fail like bed addhesion or stringing or jsut awful print starts. It is focused on underextrusion. this is not in particualr a problem but under extrusion is problem or fale typ that doenst occur unless the user did something majorly wrong. Under extrusion only happens wehn paremters liek feeding rate or clogging come into affect but Problems liek bed adhesion are a way more on the day Problem for a User. It is not as easy to recreate the Problem as well. For under extrussion u have to force baly try to trun the extrsuin parmeters down for bed addhesion you just touch the bed and thats enough.
 
 # Code
 Our Plan right now is it too solve our Error-Detection with CNNs mainly. The Problem that occurs with the under extrusion dataset is that domain shifitng, alteast how it looks right now, is gonna be required. First test showed that the recorded prints of our printer are not getting recognized. Which could have multiple reason like camera and light problems which we tried to mitigate trough using grayscale. This didnt really seem to help. 
 
-It works great with the test images from the dataset. we dont know exactly what our feuarte map looks like which makes it difficult for us
+It works great with the test images from the dataset. we dont know exactly what our feuarte map looks like which makes it difficult for us to determen what exactly triggers the net. Because the reslutts some time seem very random.
 
 We also integrated a function for taking a live camera image which comes form the endoscope camera and also controlling the printer 
 
 #Octoprint integration
-The printer is controlled over a rasberry pie 3b+ with octoprint isntalled on it. this makes conrtolling the pretty easy. On problem is tho that recording the footage for the neural net. the way we do it that i stream the cmaera image to the octoprint browser control iamge and from there i record it with OBS on my PC. the reason for why we dont record it directly to the rasbery pie ist that the fiel sizes are to big for the small sd card also to interactwith the code and the fottage its eazier to that directly on the pc.
+The printer is controlled over a rasberry pie 3b+ with octoprint installed on it https://octoprint.org/. this makes conrtolling the pretty easy. On problem is tho that recording the footage for the neural net. the way we do it that i stream the cmaera image to the octoprint browser control iamge and from there i record it with OBS on my PC. the reason for why we dont record it directly to the rasbery pie ist that the fiel sizes are to big for the small sd card also to interactwith the code and the fottage its eazier to that directly on the pc.
 
 
 
