@@ -6,14 +6,13 @@ This Idea ist not new and also has been done before but we and my colleague want
 
 # Camera Mount 
 The Camera is how i allready mentioned directly mounted to the print-head via a 3D-Printed mount https://www.printables.com/de/model/17993-prusa-mk3s-55mm-nozzle-camera-mount 
-###insert picture
 
 ![prusa_i3_mk3s_endocamera_mount_17993](https://github.com/prenzelprinz/Visual-3D-Print-Error-Detection/assets/132297533/261fa786-227b-4fea-8149-536212d40aad)
 
 This mount may be not the perfect mount for the camera postion and image we generate trough that. There are many alternatives on Printables and if none of them match our Requierments we could design one ourself 
 
 We tried another setup because it matched more the angel and generell type of pictures of the Kaggle dataset.
-###insert link and picture
+![endoholder](https://github.com/prenzelprinz/Visual-3D-Print-Error-Detection/assets/132297533/51e9bb7a-48fd-4496-a051-a5fb4b7486bd)
 
 In the end we went back to the original mount becasue its image and angle turend out to be the best.Nonetheless we used the enhanced version of it with a screw which secures agianst rotation of the camera which asures a stable image. 
 
