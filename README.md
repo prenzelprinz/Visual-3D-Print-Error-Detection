@@ -24,7 +24,7 @@ The Problem occured as we vied the images. There Qualitiy was ok in bright envir
 The lighting in whole was of the very delicated matter.As i mentioned before there are tinx led lights at the end of the lens. Those are dimmebel which helps but i cann only use them with 25 to 50 % of the capacity because after that they make lens artefacts. I also have lights mouted in the enclosre of the printer. One might think that would help but they just trhow shadows on the print bed and the nozlle which makes the dettection of erros even harder.
 
 # 3D-Printing
-The Printing is done on one of our own upgraded Prusa MK3S+. As a Filament we gonna use White PLA from FilaFarm because it gives the best contrast to the green printbed and the gold like nozzle. We are using a standard profile with 0.2mm layerhight and a print speed of 100% (Standard prusa speed ???) and 0.4 Nozzle. Those Settings are the most widlyused settigns in the 3D-Printign Community.
+The Printing is done on one of our own upgraded Prusa MK3S+. As a Filament we gonna use White PLA from FilaFarm because it gives the best contrast to the green printbed and the gold like nozzle. We are using a standard profile with 0.2mm layerhight and a print speed of 100% (Standard print speed : 50-60 mm/s) and 0.4 Nozzle. Those Settings are the most widlyused settigns in the 3D-Printign Community.
 
 In later stages we tried to use green filament becuase of the reflectiv properties of the white filament which maybe cused problems. Suprigsily there was also used very little white filament in the datasets and more green for example. 
 Grenn didn't seem to improve the recognition. We are gonna try blue Filament now of which there was abondens in the dataset.  
@@ -35,11 +35,14 @@ How allready mentioend we are using an Kaggle dataset which has around 25k image
 After further investigation it appeard that the Kaggle dataset is not focused on a geenral fail like bed addhesion or stringing or jsut awful print starts. It is focused on underextrusion. this is not in particualr a problem but under extrusion is problem or fale typ that doenst occur unless the user did something majorly wrong. Under extrusion only happens wehn paremters liek feeding rate or clogging come into affect but Problems liek bed adhesion are a way more on the day Problem for a User. It is not as easy to recreate the Problem as well. For under extrussion u have to force baly try to trun the extrsuin parmeters down for bed addhesion you just touch the bed and thats enough.
 
 # Code
-Our Plan right now is it too solve our Error-Detection with CNNs mainly. The Problem that occurs with the under extrusion dataset is that domain shifitng, alteast how it looks right now, is gonna be required. First test showed that the recorded prints of our printer are not getting recognized. Which could have multiple reason like camera and light problems which we tried to mitigate trough using grayscale. This didnt really seem to help. 
+Our Plan right now is it too solve our Error-Detection with CNNs mainly. The Problem that occurs with the under extrusion dataset is that domain shifitng, alteast how it looks right now, is gonna be required. First test showed that the recorded prints of our printer are not getting recognized. Which could have multiple reason like camera and light problems which we tried to mitigate trough using grayscale adn the guassisan blur. This didnt really seem to help.
 
-It works great with the test images from the dataset. we dont know exactly what our feuarte map looks like which makes it difficult for us to determen what exactly triggers the net. Because the reslutts some time seem very random.
+We also had Problems with our data loader which was very slow and very ineeficent afeter we fixed that testing and training went way faster. Further more we implemted taht we can pasue the training 
 
-We also integrated a function for taking a live camera image which comes form the endoscope camera and also controlling the printer 
+It works great with the test images from the dataset. we dont know exactly what our feuarte map looks like which makes it difficult for us to determen what exactly triggers the net. Because the reslutts some time seem very random. 
+For example ther sometimes are some blackj abrs because the aspect ratio of the camera is very wierd. Sometiems those black bars dont hidner the process of recgonicton sometimes tho if we cut them out the detection doenst work or chages fast between 2 states.
+
+We also integrated a function for taking a live camera image which comes form the endoscope camera and also controlling the printer.
 
 # Octoprint integration
 The printer is controlled over a rasberry pie 3b+ with octoprint installed on it https://octoprint.org/. this makes conrtolling the pretty easy. On problem is tho that recording the footage for the neural net. the way we do it that i stream the cmaera image to the octoprint browser control iamge and from there i record it with OBS on my PC. the reason for why we dont record it directly to the rasbery pie ist that the fiel sizes are to big for the small sd card also to interactwith the code and the fottage its eazier to that directly on the pc.
