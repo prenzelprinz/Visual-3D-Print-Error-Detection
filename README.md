@@ -34,7 +34,8 @@ How allready mentioend we are using an Kaggle dataset which has around 25k image
 
 After further investigation it appeard that the Kaggle dataset is not focused on a geenral fail like bed addhesion or stringing or jsut awful print starts. It is focused on underextrusion. ![651004c30d85231bd021dff7_Extrusion-1600x679](https://github.com/prenzelprinz/Visual-3D-Print-Error-Detection/assets/132297533/e7bd4038-e0c1-405f-923c-461b9aa0c5bd)
 This is not in particualr a problem but under extrusion is problem or fale typ that doenst occur unless the user did something majorly wrong. Under extrusion only happens wehn paremters liek feeding rate or clogging come into affect but Problems liek bed adhesion are a way more on the day Problem for a User. It is not as easy to recreate the Problem as well. For under extrussion u have to force baly try to trun the extrsuin parmeters down for bed addhesion you just touch the bed and thats enough.
-![06601a43c579d419329b7c11d4adcaeb](https://github.com/prenzelprinz/Visual-3D-Print-Error-Detection/assets/132297533/04e35d8a-cc1f-4c06-b43b-fd9662325065)
+![1ef69b80cd613088670d3c60c9e9a368](https://github.com/prenzelprinz/Visual-3D-Print-Error-Detection/assets/132297533/04e64e3a-cd9a-41d1-9234-f5d9e395c719)
+
 
 # Code
 Our Plan right now is it too solve our Error-Detection with CNNs mainly. The Problem that occurs with the under extrusion dataset is that domain shifitng, alteast how it looks right now, is gonna be required. First test showed that the recorded prints of our printer are not getting recognized. Which could have multiple reason like camera and light problems which we tried to mitigate trough using grayscale adn the guassisan blur. This didnt really seem to help.
