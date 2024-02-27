@@ -12,6 +12,7 @@ The Camera is how i allready mentioned directly mounted to the print-head via a 
 This mount may be not the perfect mount for the camera postion and image we generate trough that. There are many alternatives on Printables and if none of them match our Requierments we could design one ourself 
 
 We tried another setup and mount because we thought it would match the angel and generell type of pictures of the Kaggle dataset more https://www.printables.com/de/model/48381-prusa-mk3s-nozzle-camera-mount-no-support-required:
+
 ![endoholder](https://github.com/prenzelprinz/Visual-3D-Print-Error-Detection/assets/132297533/51e9bb7a-48fd-4496-a051-a5fb4b7486bd)
 
 In the end we went back to the original mount becasue its image and angle turend out to be the best.Nonetheless we used the enhanced version of it with a screw which secures agianst rotation of the camera which asures a stable image. 
@@ -32,10 +33,13 @@ Grenn didn't seem to improve the recognition. We are gonna try blue Filament now
 # Data Sets
 How allready mentioend we are using an Kaggle dataset which has around 25k images which should be enough for this type of work https://www.kaggle.com/datasets/gauravduttakiit/early-detection-of-3d-printing-issues. another dataset which we maybe gonna use is the cambridge one. This one has arround 1.25 mio images in its dataset which are also classifed into more labels then the Kaggel one they have more diffrent describign aspects liek temperaturea nd speed to it. These details make it more suited for the live adjusting paramter programm.
 
-After further investigation it appeard that the Kaggle dataset is not focused on a geenral fail like bed addhesion or stringing or jsut awful print starts. It is focused on underextrusion. ![651004c30d85231bd021dff7_Extrusion-1600x679](https://github.com/prenzelprinz/Visual-3D-Print-Error-Detection/assets/132297533/e7bd4038-e0c1-405f-923c-461b9aa0c5bd)
-This is not in particualr a problem but under extrusion is problem or fale typ that doenst occur unless the user did something majorly wrong. Under extrusion only happens wehn paremters liek feeding rate or clogging come into affect but Problems liek bed adhesion are a way more on the day Problem for a User. It is not as easy to recreate the Problem as well. For under extrussion u have to force baly try to trun the extrsuin parmeters down for bed addhesion you just touch the bed and thats enough.
-![1ef69b80cd613088670d3c60c9e9a368](https://github.com/prenzelprinz/Visual-3D-Print-Error-Detection/assets/132297533/04e64e3a-cd9a-41d1-9234-f5d9e395c719)
+After further investigation it appeard that the Kaggle dataset is not focused on a geenral fail like bed addhesion or stringing or jsut awful print starts. It is focused on underextrusion.
 
+![651004c30d85231bd021dff7_Extrusion-1600x679](https://github.com/prenzelprinz/Visual-3D-Print-Error-Detection/assets/132297533/e7bd4038-e0c1-405f-923c-461b9aa0c5bd)
+
+This is not in particualr a problem but under extrusion is problem or fale typ that doenst occur unless the user did something majorly wrong. Under extrusion only happens wehn paremters liek feeding rate or clogging come into affect but Problems liek bed adhesion are a way more on the day Problem for a User. It is not as easy to recreate the Problem as well. For under extrussion u have to force baly try to trun the extrsuin parmeters down for bed addhesion you just touch the bed and thats enough.
+
+![1ef69b80cd613088670d3c60c9e9a368](https://github.com/prenzelprinz/Visual-3D-Print-Error-Detection/assets/132297533/04e64e3a-cd9a-41d1-9234-f5d9e395c719)
 
 # Code
 Our Plan right now is it too solve our Error-Detection with CNNs mainly. The Problem that occurs with the under extrusion dataset is that domain shifitng, alteast how it looks right now, is gonna be required. First test showed that the recorded prints of our printer are not getting recognized. Which could have multiple reason like camera and light problems which we tried to mitigate trough using grayscale adn the guassisan blur. This didnt really seem to help.
