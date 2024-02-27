@@ -41,7 +41,7 @@ It works great with the test images from the dataset. we dont know exactly what 
 
 We also integrated a function for taking a live camera image which comes form the endoscope camera and also controlling the printer 
 
-#Octoprint integration
+# Octoprint integration
 The printer is controlled over a rasberry pie 3b+ with octoprint installed on it https://octoprint.org/. this makes conrtolling the pretty easy. On problem is tho that recording the footage for the neural net. the way we do it that i stream the cmaera image to the octoprint browser control iamge and from there i record it with OBS on my PC. the reason for why we dont record it directly to the rasbery pie ist that the fiel sizes are to big for the small sd card also to interactwith the code and the fottage its eazier to that directly on the pc.
 
 
